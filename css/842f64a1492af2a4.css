@@ -1608,6 +1608,10 @@ video {
    
 }
 
+.bg-white1 {
+    background-color: rgb(255, 255, 255)
+   
+}
 
 .bg-white\/10 {
     background-color: hsla(0, 0%, 100%, .1)

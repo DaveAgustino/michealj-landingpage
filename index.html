@@ -132,7 +132,7 @@
                         <h1>His name is Micheal Jackson.</h1>
                         <br>
                     
-                        <button style="background-color: #0cad14; color: white;" class="hover:bg-orange-600 font-bold py-2 px-4 rounded-full">
+                        <button style="background-color: #0cad14; color: white;" class="hover:bg-orange-600 font-bold py-2 px-4  rounded-full">
                             Buy $MICHEALJ
                         </button>
                         <button style="background-color: #1f5709; color: white;" class="hover:bg-orange-600 font-bold py-2 px-4 rounded-full">
@@ -174,7 +174,7 @@
                                 class="sm:w-[180px] sm:h-[140px] w-[100px] h-[100px]"></div>
                         <div>
                             <h1 class="font-bold sm:text-[82px] text-red-primary">BUY</h1>
-                            <a href="YOUR_LINK_HERE" class="font-bold sm:text-[82px] text-red-primary inline-block px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-200 transition-all">
+                            <a href="YOUR_LINK_HERE" class="font-bold sm:text-[82px] text-red-primary  inline-block px-6 py-2text-black rounded-lg hover:bg-gray-200 transition-all">
                                 $MICHAEL J.
                             </a>
                             
@@ -182,9 +182,79 @@
                         <div><img src="images/michealj.png" alt="hero-section-2-image"
                                 class="sm:w-[620px] sm:h-[520px] w-[200px] h-[200px]"></div>
                     </div>
-                    <h1
-                        class="text-center sm:text-3xl text-red-primary  text-sm font-bold border-2 border-black sm:p-4 p-2 w-fit mx-auto rounded-xl">
-                        CA:NOT YET HEHEHEHEHEHH</h1>
+                    <h1 class="text-center sm:text-3xl text-red-primary text-sm font-bold border-2 border-black sm:p-4 p-2 w-fit mx-auto rounded-xl inline-flex items-center">
+                        CA: <span id="caText">99999999999999999</span>
+                        <button onclick="copyCA()" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">
+                            Copy
+                        </button>
+                    </h1>
+                    
+                    <!-- Modal HTML -->
+                    <div id="copyModal" class="modal hidden fixed z-10 inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="bg-white1 p-5 rounded-lg shadow-lg">
+                            <p class="text-black text-lg font-bold">Copied Successfully!</p>
+                            <button onclick="closeModal()" class="mt-4 bg-blue-500 hover:bg-blue-700 text-black border-black font-bold py-1 px-4 rounded">
+                                OK
+                            </button>
+                        </div>
+                    </div>
+
+<style>
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal.active {
+        display: flex; /* Show modal when active */
+    }
+</style>
+                    <script>
+                         function copyCA() {
+        // Get the text from the span with ID 'caText'
+        var caText = document.getElementById("caText").textContent;
+
+        // Create a temporary input element to hold the text
+        var tempInput = document.createElement("input");
+        tempInput.value = caText.trim();
+        document.body.appendChild(tempInput);
+
+        // Select the text and copy it to the clipboard
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+
+        // Remove the temporary input element
+        document.body.removeChild(tempInput);
+
+        // Show the modal
+        showModal();
+    }
+
+    function showModal() {
+        var modal = document.getElementById("copyModal");
+        modal.classList.add("active"); // Make the modal visible
+
+        // Hide modal after 2 seconds
+        setTimeout(closeModal, 2000);
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("copyModal");
+        modal.classList.remove("active"); // Hide the modal
+    }
+                    </script>
+                                        
                 </div>
                
                 <div class="flex flex-col items-center justify-center sm:py-10 py-4">
