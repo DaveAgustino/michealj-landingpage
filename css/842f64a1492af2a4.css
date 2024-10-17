@@ -1418,15 +1418,15 @@ video {
 
 .border-black {
     --tw-border-opacity: 1;
-    border-color: rgba(0, 0, 0, var(--tw-border-opacity))
+    border-color: rgba(255, 255, 255, var(--tw-border-opacity))
 }
 
 .border-black\/10 {
-    border-color: rgba(0, 0, 0, .1)
+    border-color: rgba(255, 255, 255, .1)
 }
 
 .border-black\/50 {
-    border-color: rgba(0, 0, 0, .5)
+    border-color: rgba(255, 255, 255, .5)
 }
 
 .border-red-500 {
@@ -1601,9 +1601,13 @@ video {
 }
 
 .bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgba(0, 0, 0, var(--tw-bg-opacity))
+    background-image: url('/images/michealj-bg.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+   
 }
+
 
 .bg-white\/10 {
     background-color: hsla(0, 0%, 100%, .1)
