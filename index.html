@@ -5,16 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="next-head-count" content="2">
-    <meta charset="utf-8">
-    <link rel="icon" href="images/header-logo.png">
+    <link rel="icon" href="images/michealj.png">
     <meta name="theme-color" content="#103145">
     <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preload" href="/_next/static/media/96a6ae3aa15a991b-s.p.ttf" as="font" type="font/ttf"
-        crossorigin="anonymous" data-next-font="size-adjust">
+    <link rel="preload" href="/_next/static/media/96a6ae3aa15a991b-s.p.ttf" as="font" type="font/ttf" crossorigin="anonymous" data-next-font="size-adjust">
     <link rel="preload" href="/_next/static/css/842f64a1492af2a4.css" as="style">
     <link rel="stylesheet" href="css/842f64a1492af2a4.css" data-n-g=""><noscript data-n-css=""></noscript>
+    
+    
+    <!-- Add your title here -->
+    <title>$ MICHEAL J</title>
+
+    <!-- Add links to social media -->
+    <link rel="alternate" href="https://twitter.com/your_profile" title="Follow us on Twitter">
+    <link rel="alternate" href="https://facebook.com/your_profile" title="Follow us on Facebook">
+    <link rel="alternate" href="https://instagram.com/your_profile" title="Follow us on Instagram">
+    
     <script defer="" nomodule="" src="js/polyfills-78c92fac7aa8fdd8.js"></script>
     <script src="js/webpack-c62b5b34720c6aed.js" defer=""></script>
     <script src="js/framework-0d61bf8fb51494e9.js" defer=""></script>
@@ -24,8 +32,74 @@
     <script src="js/_buildManifest.js" defer=""></script>
     <script src="js/_ssgManifest.js" defer=""></script>
 </head>
+<style>
+    /* Preloader styles */
+    #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000; /* Background color */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999; /* Ensure it appears above all content */
+    }
+
+    #preloader img {
+        width: 500px; /* Adjust size as necessary */
+        height: 500px;
+    }
+
+    #preloader h1 {
+            color: white; /* Text color */
+            font-family: 'Roboto', sans-serif; /* Add the font family */
+            font-size: 70px; /* Increase font size */
+            margin-bottom: 20px; /* Space between text and image */
+            text-align: center; /* Center the text */
+            font-weight: 900;
+        }
+        #preloader h2 {
+    color: white; /* Text color */
+    font-family: 'Roboto', sans-serif; /* Add the font family */
+    font-size: 100px; /* Increase font size */
+    margin-bottom: 20px; /* Space between text and image */
+    text-align: center; /* Center the text */
+    font-weight: 1000; /* Use a higher numeric value for bolder text */
+}
+
+
+    .fade-out {
+        opacity: 0;
+        transition: opacity 1s ease-out;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        // Fade out the preloader after 3 seconds
+        setTimeout(() => {
+            document.getElementById('preloader').classList.add('fade-out');
+            // Remove the preloader after the fade-out animation
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 1000); // Adjust timeout to match the CSS transition duration
+        }, 3000); // Show preloader for 3 seconds
+    }
+</script>
+
+
+
 
 <body class="text-black dark:text-white">
+     <!-- Preloader -->
+     <div id="preloader">
+        <h1>WELCOME TO</h1><br>
+        <h2>$MICHEAL JACKSON</h2>
+        <img src="images/michealj.png" alt="Micheal Jackson">
+    </div>
     <div id="__next">
         <main class="__className_b07988">
             <div class="bg-white h-screen w-screen max-w-screen overflow-x-hidden flex flex-col justify-between">
@@ -147,5 +221,19 @@
         </main>
     </div>
    </body>
+
+
+   <script src="js/howler.js"></script>
+
+   <script src="js/howler.min.js"></script>
+   <script>
+  var sound = new Howl({
+    src: ['/music/Billie Jean.mp3'],
+    autoplay: true,
+    loop: true,
+    volume: 0.1,
+    preload: true // Ensures the audio is loaded as soon as possible
+});
+   </script>
 
 </html>
