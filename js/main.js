@@ -82,3 +82,10 @@
 
 
 
+// Load the audio file
+createjs.Sound.registerSound("/music/Billie Jean.mp3", "backgroundMusic"); // Ensure this path is correct
+
+// Play the audio when the page loads
+window.onload = function() {
+    createjs.Sound.play("backgroundMusic", { loop: -1, volume: 0.2 }); // Play music in a loop
+};
