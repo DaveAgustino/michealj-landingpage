@@ -1857,3 +1857,30 @@ h6 a {
     font-size: 16px;
   }
 }
+
+      /* Warning Header Styles */
+      .warning-header {
+        background-color: #ffffff; /* White background */
+        color: #000000; /* Black text */
+        padding: 2px 0; /* Small padding */
+        text-align: center; /* Center the text */
+        position: fixed; /* Fixes the header to the top */
+        top: 0; /* Positions it at the very top */
+        left: 0;
+        right: 0; /* Makes it stretch across the screen */
+        z-index: 1000; /* Ensures it appears above other content */
+        font-size: 0.8rem; /* Smaller font size */
+        font-weight: 800; /* Bold font weight */
+        box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Optional: adds a slight shadow for depth */
+    }
+
+    /* Main Header Styles */
+    .header {
+        margin-top: 40px; /* Adjust this value based on the height of your warning header */
+    }
+
+    /* Highlight Class */
+    .highlight {
+        color: red; /* Change this to your desired color */
+        font-weight: bold; /* Optional: make it bold */
+    }
