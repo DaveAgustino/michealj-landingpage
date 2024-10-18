@@ -449,7 +449,21 @@
 
 
 
+<!-- Add your audio file here -->
+<audio id="backgroundMusic" preload="auto" autoplay loop>
+  <source src="/Billie Jean.mp3" type="audio/mpeg">
+  <source src="/Billie Jean.mp3" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
 
+<script>
+  // JavaScript to control audio playback
+  window.addEventListener('load', function() {
+    var backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.volume = 0.2; // Set the volume to 20%
+    backgroundMusic.play(); // Ensure autoplay works
+  });
+</script>
 
   <script>
 
@@ -490,7 +504,22 @@
 
 
   </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/soundjs/1.0.0/soundjs.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<script>
+  // Initialize Howler.js audio
+  var sound = new Howl({
+    src: ['/Billie Jean.mp3', '/music/Billie Jean.ogg'], // Specify multiple formats
+    autoplay: true, // Autoplay on load
+    loop: true, // Loop the music
+    volume: 0.2, // Set the volume to 20%
+    preload: true, // Preload the audio
+    onload: function() {
+      console.log('Audio loaded and ready to play');
+    },
+    onloaderror: function() {
+      console.error('Error loading audio');
+    }
+  });
+</script>
 
 </body></html>
