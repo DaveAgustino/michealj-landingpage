@@ -1838,13 +1838,17 @@ h6 a {
   color: #ffffff;
 }
 /* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-  .preloader-image {
+@media (max-width: 500px) {
+  .preloader-image
+   {
     width: 100px;
   }
 
   .preloader-text {
-    font-size: 18px;
+    font-size: 10px;
+  }
+  .preloader-text1 {
+    font-size: 15px;
   }
 }
 
@@ -1854,9 +1858,14 @@ h6 a {
   }
 
   .preloader-text {
-    font-size: 16px;
+    font-size: 10px;
+  }
+  .preloader-text1 {
+    font-size: 15px;
   }
 }
+
+
 
       /* Warning Header Styles */
       .warning-header {
