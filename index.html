@@ -22,7 +22,8 @@
 <body>
 <!-- Warning Header -->
 <header class="warning-header">
-  <p class="warning-text">⚠️ Beware of Scam Projects! We are the only legitimate $MICHAELJACKSON project. Launching soon!</p>
+  <p class="warning-text">⚠️ Stay Alert! Beware of fraudulent projects. We are the one and only official $MICHAELJACKSON coin. Launching soon! Follow our official channels for updates.</p>
+
 </header>
  
 <div class="preloader" id="preloader">
@@ -120,11 +121,14 @@
             </div>
           </div>
         </div>
+
+
+
         <div class="col-lg-5 order-1 order-lg-2">
           <div class="position-relative">
             <!-- Image Container for GIF Frames -->
             <div class="video-container">
-              <img id="moonwalkFrame" src="/images/moonwalkframes/t1.png" class="img-fluid w-440" alt="Michael Jackson Moonwalk Frame">
+              <img id="moonwalkFrame" src="/images/moonwalkframes/webp/t1.webp" class="img-fluid w-440" alt="Michael Jackson Moonwalk Frame">
               <p class="slider-text">SLIDE ME TO MOONWALK</p>
               <input type="range" id="moonwalkSlider" min="0" max="29" value="0" class="volume-slider">
             </div>
@@ -137,7 +141,7 @@
     const moonwalkFrame = document.getElementById('moonwalkFrame');
     const moonwalkSlider = document.getElementById('moonwalkSlider');
 
-    // Directory for frames: /images/moonwalkframes/t1.png through /images/moonwalkframes/t30.png
+    // Directory for frames: /images/moonwalkframes/webp/t1.webp through /images/moonwalkframes/webp/t30.webp
     const totalFrames = 30; // Assuming there are 30 frames in total
 
     // Initialize Howler.js for background music
@@ -159,13 +163,13 @@
 
     // Event listener to update the frame and sound based on the slider position
     moonwalkSlider.addEventListener('input', function () {
-      const sliderValue = moonwalkSlider.value;
+      const sliderValue = parseInt(moonwalkSlider.value, 10);
 
       // Update the frame based on the slider value
-      moonwalkFrame.src = `/images/moonwalkframes/t${parseInt(sliderValue) + 1}.png`; 
+      moonwalkFrame.src = `/images/moonwalkframes/webp/t${sliderValue + 1}.webp`; 
 
       // Update audio volume based on slider value
-      sound.volume(sliderValue / totalFrames); // Volume goes from 0 to 1 as the slider moves from 0 to max
+      sound.volume(sliderValue / (totalFrames - 1)); // Volume goes from 0 to 1 as the slider moves from 0 to max
 
       // Play audio if it hasn't been triggered yet (first interaction)
       if (!audioPlayed) {
