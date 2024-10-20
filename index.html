@@ -120,20 +120,62 @@
             </div>
           </div>
         </div>
-  
         <div class="col-lg-5 order-1 order-lg-2">
           <div class="position-relative">
-            <!-- Video Container -->
+            <!-- Image Container for GIF Frames -->
             <div class="video-container">
-              <video id="moonwalkVideo" class="img-fluid w-440" loop>
-                <source src="./images/moonwalk.gif.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
+              <img id="moonwalkFrame" src="/images/moonwalkframes/t1.png" class="img-fluid w-440" alt="Michael Jackson Moonwalk Frame">
               <p class="slider-text">SLIDE ME TO MOONWALK</p>
-              <input type="range" id="moonwalkSlider" min="0" max="100" value="0" class="volume-slider">
+              <input type="range" id="moonwalkSlider" min="0" max="29" value="0" class="volume-slider">
             </div>
           </div>
         </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const moonwalkFrame = document.getElementById('moonwalkFrame');
+    const moonwalkSlider = document.getElementById('moonwalkSlider');
+
+    // Directory for frames: /images/moonwalkframes/t1.png through /images/moonwalkframes/t30.png
+    const totalFrames = 30; // Assuming there are 30 frames in total
+
+    // Initialize Howler.js for background music
+    var sound = new Howl({
+      src: ['/Billie Jean.mp3', '/music/Billie Jean.ogg'],
+      loop: true,
+      volume: 0.2, // Initial volume at 20%
+      preload: true,
+      onload: function() {
+        console.log('Audio loaded and ready to play');
+      },
+      onloaderror: function() {
+        console.error('Error loading audio');
+      }
+    });
+
+    // Start audio only on first interaction
+    let audioPlayed = false;
+
+    // Event listener to update the frame and sound based on the slider position
+    moonwalkSlider.addEventListener('input', function () {
+      const sliderValue = moonwalkSlider.value;
+
+      // Update the frame based on the slider value
+      moonwalkFrame.src = `/images/moonwalkframes/t${parseInt(sliderValue) + 1}.png`; 
+
+      // Update audio volume based on slider value
+      sound.volume(sliderValue / totalFrames); // Volume goes from 0 to 1 as the slider moves from 0 to max
+
+      // Play audio if it hasn't been triggered yet (first interaction)
+      if (!audioPlayed) {
+        sound.play();
+        audioPlayed = true;
+      }
+    });
+  });
+</script>
+        
       </div>
     </div>
   </section>

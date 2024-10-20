@@ -90,3 +90,4 @@ window.onload = function() {
     createjs.Sound.play("backgroundMusic", { loop: -1, volume: 0.2 }); // Play music in a loop
 };
 
+

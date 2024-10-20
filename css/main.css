@@ -1893,3 +1893,42 @@ h6 a {
         color: red; /* Change this to your desired color */
         font-weight: bold; /* Optional: make it bold */
     }
+
+    
+    
+    
+    .gif-container {
+      text-align: center;
+      margin-top: 80px;
+    }
+    
+    .slider-text {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    
+    .volume-slider {
+      width: 40%;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    
+    #moonwalkImage {
+      max-width: 100%;
+      height: auto;
+    }
+    
+
+    .frame {
+      max-width: 100%;
+      height: auto;
+      display: none; /* Initially hide all frames */
+  }
+  
+  .frame.active {
+      display: block; /* Only show the active frame */
+  }
+
+  
