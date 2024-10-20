@@ -128,7 +128,7 @@
           <div class="position-relative">
             <!-- Image Container for GIF Frames -->
             <div class="video-container">
-              <img id="moonwalkFrame" src="/images/moonwalkframes/webp/t1.webp" class="img-fluid w-440" alt="Michael Jackson Moonwalk Frame">
+              <img id="moonwalkFrame" src="/images/moonwalkframes/t1.png" class="img-fluid w-440" alt="Michael Jackson Moonwalk Frame">
               <p class="slider-text">SLIDE ME TO MOONWALK</p>
               <input type="range" id="moonwalkSlider" min="0" max="29" value="0" class="volume-slider">
             </div>
@@ -141,8 +141,18 @@
     const moonwalkFrame = document.getElementById('moonwalkFrame');
     const moonwalkSlider = document.getElementById('moonwalkSlider');
 
-    // Directory for frames: /images/moonwalkframes/webp/t1.webp through /images/moonwalkframes/webp/t30.webp
+    // Directory for frames: /images/moonwalkframes/t1.png through /images/moonwalkframes/t30.png
     const totalFrames = 30; // Assuming there are 30 frames in total
+    const images = []; // Array to hold preloaded images
+
+// Preload all images
+for (let i = 1; i <= totalFrames; i++) {
+  const img = new Image();
+  img.src = `/images/moonwalkframes/t${i}.png`;
+  images.push(img);
+}
+
+
 
     // Initialize Howler.js for background music
     var sound = new Howl({
@@ -163,13 +173,13 @@
 
     // Event listener to update the frame and sound based on the slider position
     moonwalkSlider.addEventListener('input', function () {
-      const sliderValue = parseInt(moonwalkSlider.value, 10);
+      const sliderValue = moonwalkSlider.value;
 
       // Update the frame based on the slider value
-      moonwalkFrame.src = `/images/moonwalkframes/webp/t${sliderValue + 1}.webp`; 
+      moonwalkFrame.src = `/images/moonwalkframes/t${parseInt(sliderValue) + 1}.png`; 
 
       // Update audio volume based on slider value
-      sound.volume(sliderValue / (totalFrames - 1)); // Volume goes from 0 to 1 as the slider moves from 0 to max
+      sound.volume(sliderValue / totalFrames); // Volume goes from 0 to 1 as the slider moves from 0 to max
 
       // Play audio if it hasn't been triggered yet (first interaction)
       if (!audioPlayed) {
