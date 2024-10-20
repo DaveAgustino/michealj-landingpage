@@ -89,3 +89,4 @@ createjs.Sound.registerSound("/music/Billie Jean.mp3", "backgroundMusic"); // En
 window.onload = function() {
     createjs.Sound.play("backgroundMusic", { loop: -1, volume: 0.2 }); // Play music in a loop
 };
+

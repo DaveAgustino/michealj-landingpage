@@ -101,56 +101,112 @@
     <!--.navbar-area-->
 
   </header>
-  <!-- ======= herder end ======= -->
-
 
   <section id="home" class="hero-area">
-    <div class="container  ">
-
-
+    <div class="container">
       <div class="row gy-3 align-items-center gx-0 justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1">
           <div class="hero-text">
-            <h1><strong>
-             $MICHAEL JACKSON
-</strong>
-            </h1>
-
+            <h1><strong>$MICHAEL JACKSON</strong></h1>
             <p>
               Imagine the King of Pop moonwalking into the world of memecoins—introducing Michael Jackson Coin, 
               where every token is a thriller! Whether you're beating it to the top of the charts or smooth
-               criminaling your way through the blockchain, this coin is bad (in the best way). Don't stop till you get enough...of MJCoin!
+              criminaling your way through the blockchain, this coin is bad (in the best way). Don't stop till you get enough...of MJCoin!
             </p>
-
+  
             <div class="hero-btn">
-              <!-- ADD LINK PUMPFUN-->
-              <a href="" target="_blank" class="btn-2"> Buy now </a>
-            <!-- ADD LINK PUMPFUN-->
-
-            <!-- ADD LINK DEX-->
-              <a href="" target="_blank" class="btn-2-outline"> Live Chart </a>
+              <a href="" target="_blank" class="btn-2">Buy now</a>
+              <a href="" target="_blank" class="btn-2-outline">Live Chart</a>
             </div>
-
-              <!-- ADD LINK DEX-->
-
-          </div><!-- /.hero-txt -->
-        </div><!-- /.col-lg-6 -->
-
+          </div>
+        </div>
+  
         <div class="col-lg-5 order-1 order-lg-2">
           <div class="position-relative">
-            <img src="images/J/front-micheal-herosection-01-01.png" class="img-fluid w-440" alt="">
-
+            <!-- Video Container -->
+            <div class="video-container">
+              <video id="moonwalkVideo" class="img-fluid w-440" loop>
+                <source src="./images/moonwalk.gif.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p class="slider-text">SLIDE ME TO MOONWALK</p>
+              <input type="range" id="moonwalkSlider" min="0" max="100" value="0" class="volume-slider">
+            </div>
           </div>
-        </div><!-- /.col-lg-6 -->
-
-      </div><!-- /.row -->
-
-
-
-    </div><!-- /.container -->
-  </section><!-- /.hero-area -->
-
-
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .video-container {
+      text-align: center;
+      margin-top: 80px;
+    }
+  
+    .slider-text {
+      font-size: 1.2rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+  
+    .volume-slider {
+      width: 40%;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  
+    #moonwalkVideo {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const moonwalkVideo = document.getElementById('moonwalkVideo');
+      const moonwalkSlider = document.getElementById('moonwalkSlider');
+  
+      // Video control initialization
+      moonwalkVideo.pause();
+      moonwalkVideo.currentTime = 0;
+  
+      // Initialize Howler.js for background music
+      var sound = new Howl({
+        src: ['/Billie Jean.mp3', '/music/Billie Jean.ogg'],
+        loop: true,
+        volume: 0.2, // Initial volume at 20%
+        preload: true,
+        onload: function() {
+          console.log('Audio loaded and ready to play');
+        },
+        onloaderror: function() {
+          console.error('Error loading audio');
+        }
+      });
+  
+      // Start audio only on first interaction
+      let audioPlayed = false;
+  
+      // Update video position and audio volume based on slider value
+      moonwalkSlider.addEventListener('input', function () {
+        const sliderValue = moonwalkSlider.value;
+        moonwalkVideo.pause(); // Keep the video paused
+        moonwalkVideo.currentTime = (sliderValue / 100) * moonwalkVideo.duration; // Set video time based on slider
+        sound.volume(sliderValue / 100); // Update audio volume based on slider
+  
+        // Play audio if it hasn't been triggered yet (first interaction)
+        if (!audioPlayed) {
+          sound.play();
+          audioPlayed = true;
+        }
+      });
+    });
+  </script>
+  
 
 
   <section class="video-cta" id="about">
@@ -449,77 +505,5 @@
 
 
 
-<!-- Add your audio file here -->
-<audio id="backgroundMusic" preload="auto" autoplay loop>
-  <source src="/Billie Jean.mp3" type="audio/mpeg">
-  <source src="/Billie Jean.mp3" type="audio/ogg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  // JavaScript to control audio playback
-  window.addEventListener('load', function() {
-    var backgroundMusic = document.getElementById('backgroundMusic');
-    backgroundMusic.volume = 0.2; // Set the volume to 20%
-    backgroundMusic.play(); // Ensure autoplay works
-  });
-</script>
-
-  <script>
-
-
-
-    // Initialize Bootstrap tooltips
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl, {
-        trigger: 'manual'  // Manually control the tooltip
-      });
-    });
-
-    function copy(text, target) {
-      var button = document.querySelector(target);
-
-      // Create a temporary input element to copy the text
-      var input = document.createElement('input');
-      input.setAttribute('value', text);
-      document.body.appendChild(input);
-      input.select();
-      var result = document.execCommand('copy');
-      document.body.removeChild(input);
-
-      // Show the tooltip
-      var tooltip = bootstrap.Tooltip.getInstance(button);
-      tooltip.show();
-
-      // Hide the tooltip after 800ms
-      setTimeout(function () {
-        tooltip.hide();
-      }, 800);
-
-      return result;
-    }
-
-
-
-
-  </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-<script>
-  // Initialize Howler.js audio
-  var sound = new Howl({
-    src: ['/Billie Jean.mp3', '/music/Billie Jean.ogg'], // Specify multiple formats
-    autoplay: true, // Autoplay on load
-    loop: true, // Loop the music
-    volume: 0.2, // Set the volume to 20%
-    preload: true, // Preload the audio
-    onload: function() {
-      console.log('Audio loaded and ready to play');
-    },
-    onloaderror: function() {
-      console.error('Error loading audio');
-    }
-  });
-</script>
 
 </body></html>
