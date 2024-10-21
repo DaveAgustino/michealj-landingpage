@@ -150,7 +150,7 @@
     var sound = new Howl({
       src: ['/Billie Jean.mp3', '/music/Billie Jean.ogg'],
       loop: true,
-      volume: 0.2,
+      volume: 0.2, // Initial volume
       preload: true,
       onload: function () {
         console.log('Audio loaded and ready to play');
@@ -186,6 +186,9 @@
 
       // Face opposite to slider movement
       moonwalkFrame.style.transform = direction === 1 ? 'scaleX(-1)' : 'scaleX(1)';
+
+      // Update audio volume based on slider position
+      sound.volume(sliderValue / totalFrames); // Volume from 0 to 1
 
       // Play audio if it hasn't been triggered yet
       if (!audioPlayed) {
