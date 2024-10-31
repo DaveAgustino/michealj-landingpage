@@ -91,3 +91,28 @@ window.onload = function() {
 };
 
 
+document.addEventListener("DOMContentLoaded", function () {
+	const preloader = document.getElementById('preloader');
+	const curtainContainer = document.getElementById('curtainContainer');
+	const curtainLeft = document.querySelector('.curtain-left');
+	const curtainRight = document.querySelector('.curtain-right');
+	const mainContent = document.getElementById('main-content');
+  
+	// Step 1: Preloader will fade out after 3 seconds
+	setTimeout(function () {
+	  preloader.classList.add('hidden');
+  
+	  // Step 2: Show curtain animation after preloader fades out
+	  setTimeout(function () {
+		curtainContainer.style.display = 'flex'; // Show the curtain container
+	  }, 5000); // Delay to ensure preloader fade-out completes
+	}, 5000); // Adjust preloader display time as needed
+  
+	// Step 3: After curtain animation completes, show the main content
+	setTimeout(function () {
+	  curtainContainer.style.display = 'none'; // Hide the curtains
+	  mainContent.style.display = 'block'; // Display the main content
+	  mainContent.classList.add('show'); // Fade in the main content
+	}, 5000); // Timing matches the curtain animation (2 seconds delay)
+  });
+  

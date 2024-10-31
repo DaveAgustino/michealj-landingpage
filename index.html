@@ -25,7 +25,10 @@
   <p class="warning-text">⚠️ Stay Alert! Beware of fraudulent projects. We are the one and only official $MICHAELJACKSON coin. Launching soon! Follow our official channels for updates.</p>
 
 </header>
- 
+
+
+
+<!-- Preloader -->
 <div class="preloader" id="preloader">
   <div class="preloader-content">
     <img src="./images/preloader-michael.webp" class="preloader-image" />
@@ -33,9 +36,26 @@
     <h1 class="preloader-text1">$MICHAELJACKSON</h1>
     <h2 class="preloader-text">Get ready, the fun is just about to begin!</h2>
   </div>
+  
+  <!-- Curtain Animation -->
+  <div class="curtain left-curtain"></div>
+  <div class="curtain right-curtain"></div>
 </div>
 
-  
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      document.getElementById('preloader').classList.add('fade-out');
+      document.getElementById('curtain').classList.add('curtain-close');
+      setTimeout(function() {
+        document.getElementById('preloader').style.display = 'none';
+        document.getElementById('curtain').style.display = 'none';
+        document.getElementById('main-content').classList.remove('hidden');
+      }, 2000); // Adjust time to match the curtain animation duration
+    }, 3000); // Preloader stays for 3 seconds
+  });
+</script>
 
   <header class="header">
     <div class="navbar-area">
@@ -108,11 +128,44 @@
       <div class="row gy-3 align-items-center gx-0 justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1">
           <div class="hero-text">
-            <h1><strong>$MICHAEL JACKSON</strong></h1>
-            <p>
-              Imagine the King of Pop moonwalking into the world of memecoins—introducing Michael Jackson Coin, 
-              where every token is a thriller! Whether you're beating it to the top of the charts or smooth
-              criminaling your way through the blockchain, this coin is bad (in the best way). Don't stop till you get enough...of MJCoin!
+
+            <style>
+              .halloween-header {
+                position: relative;
+                display: inline-block;
+                font-size: 36px; /* Adjust font size as needed */
+              }
+            
+              .halloween-header img {
+                position: absolute;
+                left: -77px; /* Adjust position to place the image in front */
+                top: -66;
+                width: 120px; /* Adjust width as needed */
+                height: auto;
+              }
+            </style>
+            
+            <h1 class="halloween-header">
+              <img src="./images/icon-hallowen.png" alt="Halloween Icon">
+              <strong>$MICHAEL JACKSON</strong>
+            </h1>
+     
+
+            <p style="font-size: 20px; font-weight: bold;">
+              Enter the Moonlit Crypt with Michael Jackson Coin (MJCoin) 👻 
+              </p>
+
+              <p style="font-size: 20px; font-weight: bold;">
+                where every token is a 
+                Thriller! This Halloween, the King of Pop haunts the blockchain, moonwalking through the midnight hour
+                with spooktacular returns! Will you be the Smooth Criminal prowling for profits, or will you join
+                  the Ghoul Gang rising to the top of the memecoin tomb? From screaming gains to haunting the charts, MJCoin is bad (in the best way). 
+              </p>
+            <p style="font-size: 20px; font-weight: bold;">
+              So get ready for a chilling adventure—because when the clock strikes midnight, 
+              you won’t want to stop till you get enough MJCoin! 🎃💀
+            </p>
+
             </p>
   
             <div class="hero-btn">
@@ -299,20 +352,20 @@
           <div class="col-lg-6">
 
             <div class="sec-t" data-aos="zoom-in" data-aos-duration="2000">
-              <h2> KING OF POP</h2>
-              <p>
-                "From pop icon to memecoin legend, MJCoin is where culture, music, and blockchain collide—be part of the next moonwalk!
+              <h2 style="font-weight: 600; font-size: 55px;">👻 KING OF POP 👻</h2>
+              <p style="font-weight: 600; font-size: 12px;">
+                 From pop icon to memecoin legend, MJCoin is where thrills, chills, and blockchain collide—join the next moonwalk… if you dare!
               </p>
 
             </div><!-- /.sec-t -->
 
             <div class="abt-txxt" data-aos="fade-right" data-aos-duration="1500">
-              <p>
-                Michael Jackson didn't just moonwalk into music history—now he's stepping into the memecoin world! From 
-                leading the Jackson 5 to global fame in 1964, to kicking off a solo career in 1971 that changed the game,
-                 MJ made every genre his own. He didn’t just influence artists; he created a whole new beat,
-                 from the moonwalk to the robot. And now, with MJCoin, his legacy dances onto the blockchain, leading the 
-                 way for memecoins with moves like no other!
+              <p style="font-weight: 600; font-size: 16px;">
+                This Halloween, Michael Jackson isn’t just moonwalking through music history—he’s rising from
+                 the digital crypt to lead the memecoin revolution! From spooky solos with the Jackson 5 in 1964 to a 
+                 bone-chilling solo career in 1971, MJ set every stage ablaze. And now, MJCoin brings his legacy back to
+                  life on the blockchain. With each move—from the eerie moonwalk to the ghostly robot—MJCoin is here to 
+                  thrill the cryptosphere.
               </p>
             </div><!-- /.abt-txxt -->
 

@@ -554,7 +554,7 @@ h6 a {
 @-webkit-keyframes glowing {
   0% {
     background-color: #f0f0f0;
-    -webkit-box-shadow: 0 0 3px #;
+    -webkit-box-shadow: 0 0 3px #ebebeb;
             box-shadow: 0 0 3px #ebebeb;
   }
   50% {
@@ -1790,7 +1790,6 @@ h6 a {
 }
 /*# sourceMappingURL=main.css.map */
 
-
 /* Preloader container */
 .preloader {
   position: fixed;
@@ -1798,20 +1797,20 @@ h6 a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000; /* Background color */
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   opacity: 1;
-  transition: opacity 0.5s ease; /* Fade effect */
+  transition: opacity 1s ease; /* Fade out effect */
 }
 
 /* Preloader hidden state */
 .preloader.hidden {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0s 2s;
+  transition: opacity 1s ease, visibility 0s 1s;
 }
 
 /* Preloader content */
@@ -1819,14 +1818,12 @@ h6 a {
   text-align: center;
 }
 
-/* Preloader image */
 .preloader-image {
   width: 700px;
   height: auto;
   margin-bottom: 20px;
 }
 
-/* Preloader text */
 .preloader-text {
   font-size: 20px;
   color: #ffffff;
@@ -1837,35 +1834,51 @@ h6 a {
   font-weight: 900;
   color: #ffffff;
 }
-/* Responsive adjustments for mobile */
-@media (max-width: 500px) {
-  .preloader-image
-   {
-    width: 400px;
-  }
+/* Curtain styles */
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: url('./images/curtain.webp') no-repeat center center;
+  background-size: cover;
+  z-index: 999;
+}
 
-  .preloader-text {
-    font-size: 20px;
+.left-curtain {
+  left: 0;
+  animation: curtain-left-move 2s forwards;
+}
+
+.right-curtain {
+  right: 0;
+  animation: curtain-right-move 2s forwards;
+}
+
+/* Curtain animation */
+@keyframes curtain-left-move {
+  0% {
+    transform: translateX(0);
   }
-  .preloader-text1 {
-    font-size: 25px;
+  100% {
+    transform: translateX(-100%);
   }
 }
 
-@media (max-width: 480px) {
-  .preloader-image {
-    width: 300px;
+@keyframes curtain-right-move {
+  0% {
+    transform: translateX(0);
   }
-
-  .preloader-text {
-    font-size: 20px;
-  }
-  .preloader-text1 {
-    font-size: 25px;
+  100% {
+    transform: translateX(100%);
   }
 }
 
-
+/* Preloader content should appear after curtains move */
+.preloader-content {
+  position: relative;
+  z-index: 1000;
+}
 
       /* Warning Header Styles */
       .warning-header {
